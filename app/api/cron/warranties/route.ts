@@ -19,7 +19,7 @@ export async function GET(request: Request) {
     // Fetch purchases that have a warranty but haven't been reminded yet
     const { data: purchases, error: purchaseError } = await supabase
       .from('purchases')
-      .select('id, user_id, product_name, warranty_expires_at')
+      .select('*')
       .neq('warranty_reminder_sent', true)
       .gt('warranty_months', 0);
 
