@@ -1,0 +1,235 @@
+[
+  {
+    "id": "TC001",
+    "title": "Sign up and access the workspace",
+    "description": "A new user can create an account with email and password and is granted access to the authenticated workspace.",
+    "category": "User Signup and Login",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /auth/signup"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the signup form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user gains access to the authenticated workspace"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the dashboard is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Log in and reach the dashboard",
+    "description": "A returning user can sign in with email and password and arrive at the dashboard.",
+    "category": "User Signup and Login",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /auth/login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user lands on the dashboard"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the dashboard overview is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Blocked access to the dashboard when signed out",
+    "description": "An unauthenticated user who opens the dashboard is redirected or blocked from viewing purchase data until they sign in.",
+    "category": "Dashboard Overview",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify access to the dashboard is denied for a signed-out user"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user is prompted to authenticate"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "Open the dashboard as an authenticated user",
+    "description": "An authenticated user can open the main dashboard and see the central overview of purchase records.",
+    "category": "Dashboard Overview",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the receipts overview is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the purchases overview is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the warranties overview is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "Reach login from the landing page",
+    "description": "A visitor can navigate from the landing page to the sign-in experience using the app's primary entry path.",
+    "category": "User Signup and Login",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to sign in"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the login form is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC006",
+    "title": "Reach signup from the landing page",
+    "description": "A visitor can navigate from the landing page to the account creation experience using the app's primary entry path.",
+    "category": "User Signup and Login",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the link to create an account"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the signup form is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC007",
+    "title": "Show validation when login credentials are incomplete",
+    "description": "Submitting the login form without required credentials shows validation and does not grant dashboard access.",
+    "category": "User Signup and Login",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /auth/login"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the email field with {{LOGIN_USER}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the login form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a password validation error is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the dashboard is not displayed"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC008",
+    "title": "Show validation when signup email is missing",
+    "description": "Submitting the signup form without an email shows validation and keeps the user on the signup page.",
+    "category": "User Signup and Login",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /auth/signup"
+      },
+      {
+        "type": "action",
+        "description": "Fill in the password field with {{LOGIN_PASSWORD}}"
+      },
+      {
+        "type": "action",
+        "description": "Submit the signup form"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an email validation error is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the signup form remains available"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC009",
+    "title": "Show the empty dashboard state when no records exist",
+    "description": "An authenticated user with no purchase records sees an empty or initial dashboard state instead of broken content.",
+    "category": "Dashboard Overview",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /dashboard"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an empty state message is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the dashboard shell is displayed"
+      }
+    ],
+    "priority": "Low"
+  }
+]

@@ -1,0 +1,46 @@
+version: "2"
+type: frontend
+tech_stack:
+  - TypeScript
+  - Next.js
+  - React
+  - TailwindCSS
+  - Supabase
+routes:
+  - path: /
+    file: app/(marketing)/page.tsx
+    auth_required: false
+    description: Landing page
+  - path: /auth/login
+    file: app/auth/login/page.tsx
+    auth_required: false
+    description: User login page
+  - path: /auth/signup
+    file: app/auth/signup/page.tsx
+    auth_required: false
+    description: User signup page
+  - path: /dashboard
+    file: app/dashboard/page.tsx
+    auth_required: true
+    description: Main dashboard
+features:
+  - name: User Login
+    description: Login with email and password credentials
+    files:
+      - app/auth/login/page.tsx
+      - app/auth/actions.ts
+    entry_route: /auth/login
+    user_interactions:
+      - Fill email input field
+      - Fill password input field
+      - Click Login button to submit
+    auth_required: false
+  - name: Dashboard
+    description: View main dashboard
+    files:
+      - app/dashboard/page.tsx
+    entry_route: /dashboard
+    user_interactions:
+      - View overview of receipts, purchases, warranties
+    auth_required: true
+known_limitations: []

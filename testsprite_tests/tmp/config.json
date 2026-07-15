@@ -1,0 +1,19 @@
+{
+  "status": "commited",
+  "type": "frontend",
+  "scope": "codebase",
+  "localEndpoint": "http://localhost:3000",
+  "executionArgs": {
+    "projectName": "Ownly",
+    "projectPath": "d:\\Ownly",
+    "testIds": [
+      "TC002"
+    ],
+    "additionalInstruction": "",
+    "serverMode": "development",
+    "envs": {
+      "API_KEY": "sk-user-EDhh_6fQ77s5YJMV0GyjrWbbMM8SjESTmFgLDS8Rz8zf2C2GyFCAEBHjclorTUsft_1taEG_s5uJQZKQ2W_gydY-K1h_SNmUfWHddV2N-VqeqdjGBtJCYcBEu_xrQ8GUXEY"
+    }
+  },
+  "serverPort": 50423
+}
