@@ -1,5 +1,8 @@
 import { Hero } from "@/components/landing/hero";
-import { DashboardPreview } from "@/components/landing/dashboard-preview";
+import dynamic from "next/dynamic";
+const DashboardPreview = dynamic(() => import("@/components/landing/dashboard-preview").then(mod => mod.DashboardPreview), {
+  ssr: false, // We don't need to server-side render the fake dashboard
+});
 import { Features } from "@/components/landing/features";
 import { HowItWorks } from "@/components/landing/how-it-works";
 import { Pricing } from "@/components/landing/pricing";
